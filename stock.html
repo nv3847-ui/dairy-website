@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html><body>
+<h2>Stock</h2>
+<table border="1" id="t"></table>
+<script src="data.js"></script>
+<script>
+let h="<tr><th>Item</th><th>Qty</th></tr>";
+for(let i in stock){h+=`<tr><td>${i}</td><td>${stock[i]}</td></tr>`;}
+t.innerHTML=h;
+</script>
+</body></html>

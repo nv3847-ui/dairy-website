@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html><body>
+<h2>Report</h2>
+<p>Sale: ₹ <span id="s"></span></p>
+<p>Purchase: ₹ <span id="p"></span></p>
+<p>Profit: ₹ <span id="pr"></span></p>
+<button onclick="excel()">Export Excel</button>
+<script src="data.js"></script>
+<script>
+let ts=sales.reduce((a,x)=>a+x.amt,0);
+let tp=purchases.reduce((a,x)=>a+x.amt,0);
+s.innerText=ts; p.innerText=tp; pr.innerText=ts-tp;
+function excel(){
+ let csv="Type,Item,Qty,Amount\n";
+ sales.forEach(x=>csv+=`Sale,${x.item},${x.qty},${x.amt}\n`);
+ purchases.forEach(x=>csv+=`Purchase,${x.item},${x.qty},${x.amt}\n`);
+ let a=document.createElement("a");
+ a.href=URL.createObjectURL(new Blob([csv]));
+ a.download="Report.csv";
+ a.click();
+}
+</script>
+</body></html>

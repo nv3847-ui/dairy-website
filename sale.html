@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html><body>
+<h2>Sale Entry</h2>
+<input id="item" placeholder="Item"><br><br>
+<input id="qty" type="number" placeholder="Qty"><br><br>
+<input id="amt" type="number" placeholder="Amount"><br><br>
+<button onclick="saveSale()">Save Sale</button>
+<script src="data.js"></script>
+<script>
+function saveSale(){
+ stock[item.value]=(stock[item.value]||0)-(+qty.value);
+ sales.push({item:item.value,qty:+qty.value,amt:+amt.value});
+ saveAll(); alert("Saved");
+}
+</script>
+</body></html>

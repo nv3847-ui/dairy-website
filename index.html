@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dairy Shop – Home</title>
+<style>
+body{font-family:Arial;background:#f4f6f8;padding:20px}
+.box{background:#fff;padding:15px;border-radius:10px;margin-bottom:15px}
+button{padding:10px;margin:5px;background:#1976d2;color:#fff;border:none;border-radius:6px}
+.profit{color:green;font-weight:bold}
+</style>
+</head>
+<body>
+<h1>Dairy Shop Dashboard</h1>
+<div class="box">
+<p>Total Sale: ₹ <span id="s">0</span></p>
+<p>Total Purchase: ₹ <span id="p">0</span></p>
+<p class="profit">Profit: ₹ <span id="pr">0</span></p>
+</div>
+<div class="box">
+<button onclick="go('sale.html')">Sale</button>
+<button onclick="go('purchase.html')">Purchase</button>
+<button onclick="go('stock.html')">Stock</button>
+<button onclick="go('report.html')">Report</button>
+</div>
+<script src="data.js"></script>
+<script>
+function go(p){location.href=p}
+let ts = sales.reduce((a,x)=>a+x.amt,0);
+let tp = purchases.reduce((a,x)=>a+x.amt,0);
+s.innerText = ts;
+p.innerText = tp;
+pr.innerText = ts - tp;
+</script>
+</body>
+</html>

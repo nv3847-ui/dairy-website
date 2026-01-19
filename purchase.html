@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html><body>
+<h2>Purchase Entry</h2>
+<input id="item" placeholder="Item"><br><br>
+<input id="qty" type="number"><br><br>
+<input id="amt" type="number"><br><br>
+<button onclick="savePurchase()">Save Purchase</button>
+<script src="data.js"></script>
+<script>
+function savePurchase(){
+ stock[item.value]=(stock[item.value]||0)+(+qty.value);
+ purchases.push({item:item.value,qty:+qty.value,amt:+amt.value});
+ saveAll(); alert("Saved");
+}
+</script>
+</body></html>
